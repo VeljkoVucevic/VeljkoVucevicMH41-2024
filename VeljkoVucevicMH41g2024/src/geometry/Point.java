@@ -6,6 +6,13 @@ public class Point {
 	private int y;
 	private boolean selected;
 	
+	public double distance(Point p) {
+		int dx = x - p.getX(); // this nije potrebno jer nemao nikakakv konflikt, zna se na sta se odnosi
+		int dy = y - p.getY();
+		return Math.sqrt(dx*dx + dy*dy);
+		
+	}
+	
 	// get metode - vracaju nam isti tip podatka kao i sam atribut
 	
 	public int getX() {
