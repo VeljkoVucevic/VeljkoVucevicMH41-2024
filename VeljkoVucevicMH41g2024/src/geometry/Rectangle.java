@@ -1,35 +1,45 @@
 package geometry;
 
 public class Rectangle {
-	
+
 	private Point upperLeft;
 	private int width;
 	private int height;
 	private boolean selected;
-	
+
 	public Rectangle() {
-		
+
 	}
-	
+
 	public Rectangle(Point upperLeft, int width, int height) {
 		this.upperLeft = upperLeft;
 		this.width = width;
 		this.height = height;
 	}
-	
+
 	public Rectangle(Point upperLeft, int width, int height, boolean selected) {
 		this(upperLeft, width, height);
 		this.selected = selected;
 	}
-	
+
 	public int area() {
-		return height*width;
+		return height * width;
 	}
-	
+
 	public int circuference() {
-		return 2*height + 2*width;
+		return 2 * height + 2 * width;
 	}
-	
+
+	public boolean contains(int x, int y) {
+		return (x >= upperLeft.get(X) && x <= upperLeft.get(X) + width)
+				&& (y >= upperLeft.get(Y) && y <= upperLeft.get(Y) + height);
+
+	}
+
+	public boolean contains(Point click) {
+		return contains(click.get(X), click.get(Y));
+
+	}
 
 	public Point getUpperLeft() {
 		return upperLeft;
@@ -62,6 +72,5 @@ public class Rectangle {
 	public void setSelected(boolean selected) {
 		this.selected = selected;
 	}
-	
 
 }
